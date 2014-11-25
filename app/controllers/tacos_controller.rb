@@ -14,9 +14,8 @@ class TacosController < ApplicationController
       @lat = results.first.data["lat"].to_f.round(2)
       @lng = results.first.data["lon"].to_f.round(2)
     else
-      Rails.logger.info request.location.inspect
-      @lat = request.location.data["latitude"].to_f.round(2)
-      @lng = request.location.data["longitude"].to_f.round(2)
+      @lat = params["latitude"].to_f.round(2)
+      @lng = params["longitude"].to_f.round(2)
     end
     latlng = [@lat,@lng].join(",")
     result = foursquare_client.search_venues(:ll => latlng, :query => 'tacos')

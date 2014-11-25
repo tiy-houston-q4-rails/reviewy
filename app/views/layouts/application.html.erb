@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Reviewy</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  
+
 </head>
 <body>
   <p class="notice"><%= notice %></p>
@@ -25,6 +25,12 @@
   <%= link_to "Private Stuff Here", private_path %>
   <%= link_to "Movie Reviews", :reviews_search %>
   <%= link_to "Taco Finder", :tacos_search %>
+
+  <%= form_tag tacos_results_path, method: :post, id: "hangry" do %>
+  <%= hidden_field_tag :longitude, "", placeholder: "longitude", id: "longitude" %>
+  <%= hidden_field_tag :latitude, "", placeholder: "latitude", id: "latitude" %>
+    <%= submit_tag "Find tacos near me NOAW I I HANGRY" %>
+  <% end %>
 </nav>
 
 <%= yield %>

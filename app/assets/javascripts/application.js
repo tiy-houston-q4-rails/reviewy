@@ -12,5 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+$(window).ready(function() {
+
+  $("#hangry").hide();
+
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      var longitude = position.coords.longitude;
+      var latitude = position.coords.latitude;
+
+      $("#longitude").val(longitude);
+      $("#latitude").val(latitude);
+      $("#hangry").show("fast");
+
+    },
+    function (error) {
+      alert("No!" + error);
+    }
+  );
+
+
+});
