@@ -1,0 +1,11 @@
+
+<h2><%= @movie.name %></h2>
+
+<%= render partial: 'form' %>
+
+<h3>Reviews</h3>
+<% @reviews.each do |review| %>
+  <div>
+    <blockquote><%= review.quote %><cite><%= review.critic %></cite></blockquote>
+  </div>
+<% end %>

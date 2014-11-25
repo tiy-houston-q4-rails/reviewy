@@ -40,3 +40,9 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'rails_12factor'
+gem 'faraday'
+gem 'badfruit'
+gem 'foursquare2'
+gem 'geocoder'
+gem 'pry'
+gem 'dotenv-rails'

@@ -1,0 +1,4 @@
+<%= form_tag results_path, method: :post do %>
+<%= text_field_tag :movie_title, params["movie_title"], placeholder: "Movie Title" %>
+<%= submit_tag "Search" %>
+<% end %>

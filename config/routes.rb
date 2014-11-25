@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+
+  get 'tacos' => 'tacos#search', as: :tacos_search
+  post 'tacos' => 'tacos#results', as: :tacos_results
+
+
+  get 'reviews' =>'reviews#search', as: :reviews_search
+  post 'reviews' => 'reviews#results', as: :results
+
   get 'users/new', as: :sign_up
   post "users" => 'users#create', as: :users
 
