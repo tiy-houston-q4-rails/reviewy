@@ -1,0 +1,10 @@
+<h1>Receipt!</h1>
+
+<dl>
+  <dt>email</dt>
+  <dd><%= @charge.email %></dd>
+  <dt>amount</dt>
+  <dd><%=number_to_currency @charge.amount %></dd>
+  <dt>Date</dt>
+  <dd><%= @charge.created_at.strftime("%b %d, %Y") %></dd>
+</dl>

@@ -1,16 +1,17 @@
 <h1>Page#public</h1>
 <p>Find me in app/views/page/public.html.erb</p>
 
+<div id="cart">
+  <%= render partial: "charges/cart" %>
+</div>
 
-<%= form_tag charges_path, method: :post do %>
-<script
-  src="https://checkout.stripe.com/checkout.js"
-  class="stripe-button"
-  data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
-  data-image="<%= image_path 'tacos.jpg' %>"
-  data-name="Tacos Tacos Tacos"
-  data-description="2 tacos ($20.00)"
-  data-amount="2000">
-</script>
+<% @tacos.each do |taco| %>
 
+  <div class="taco">
+    <%= image_tag taco.photo_url, style: "width: 300px; height: 300px" %>
+    <h5><%= taco.name %> <%= number_to_currency taco.price %></h5>
+    <%= form_tag cart_path(taco_id: taco.id), remote: true, method: :post do %>
+      <button>Add To Cart</button>
+    <% end %>
+  </div>
 <% end %>

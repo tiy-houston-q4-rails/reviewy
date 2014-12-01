@@ -1,0 +1,36 @@
+<% if @cart.items.any? %>
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Item</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.items.each do |cart_item| %>
+    <tr>
+      <td><%= cart_item.quantity %></td>
+      <td><%= cart_item.taco.name %></td>
+      <td><%= number_to_currency( cart_item.subtotal )%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+Total: <%= number_to_currency @cart.total %>
+
+<%= form_tag charges_path, method: :post do %>
+<script
+src="https://checkout.stripe.com/checkout.js"
+class="stripe-button"
+data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+data-image="<%= image_path 'tacos.jpg' %>"
+data-name="Tacos Tacos Tacos"
+data-description="<%= @cart.description %>"
+data-amount="<%= @cart.total_in_cents %>">
+</script>
+
+<% end %>
+
+<% end %>

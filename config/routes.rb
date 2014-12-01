@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  post "cart" => "charges#cart", as: :cart
+
   post "charges" => 'charges#create', as: :charges
+  get "charge/:id" => 'charges#show', as: :charge
 
   get 'tacos' => 'tacos#search', as: :tacos_search
   post 'tacos' => 'tacos#results', as: :tacos_results
