@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post "charges" => 'charges#create', as: :charges
 
   get 'tacos' => 'tacos#search', as: :tacos_search
   post 'tacos' => 'tacos#results', as: :tacos_results
