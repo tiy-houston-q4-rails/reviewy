@@ -34,7 +34,7 @@ $(window).ready(function() {
     }
   );
 
-  $("#facebook-login").on("click", function(event){
+  $(".social-login").on("click", function(event){
 
     $loader = $("#loader")
     $(event.target).replaceWith($loader);

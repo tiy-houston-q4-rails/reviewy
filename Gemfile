@@ -49,3 +49,6 @@ gem 'dotenv-rails'
 gem 'stripe'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem "koala", "~> 1.10.0rc"
+gem 'octokit'

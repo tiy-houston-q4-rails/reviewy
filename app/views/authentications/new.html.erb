@@ -2,10 +2,15 @@ Oh Hai! Our service rocks.
 
 <p>
 <%= link_to user_omniauth_authorize_path(provider: :facebook) do %>
-  <%= image_tag "facebook.png", id: 'facebook-login' %>
+  <%= image_tag "facebook.png", class: 'social-login' %>
 <% end %>
 </p>
 
+<p>
+  <%= link_to user_omniauth_authorize_path(provider: :github) do %>
+    <%= image_tag "github.png", class: 'social-login' %>
+  <% end %>
+</p>
 
 <div id="loader">
   <%= image_tag "loader.gif" %>

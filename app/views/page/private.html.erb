@@ -1,2 +1,8 @@
 <h1>Page#private</h1>
 <p>Find me in app/views/page/private.html.erb</p>
+
+<h5>Your Repos:</h5>
+
+<% @repos.each do |repo| %>
+  <%= repo.full_name %><br/>
+<% end %>

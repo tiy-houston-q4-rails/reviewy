@@ -1,0 +1,23 @@
+<h1>Authorizations#list</h1>
+<p>Find me in app/views/authorizations/list.html.erb</p>
+
+<ul>
+  <li>
+    Github:
+    <% if current_user.authorizations.find_by(provider: 'github')%>
+      Connected
+    <% else %>
+      Not Connected
+    <% end %>
+    </li>
+    <li>
+      Facebook:
+      <% if current_user.authorizations.find_by(provider: 'facebook')%>
+      Connected
+      <% else %>
+      Not Connected
+      <%= link_to "Connect Facebook", user_omniauth_authorize_path(provider: :facebook) %>
+
+      <% end %>
+    </li>
+</ul>

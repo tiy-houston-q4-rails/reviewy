@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'connections' => 'authorizations#list', as: :authorizations
+
   post "cart" => "charges#cart", as: :cart
 
   post "charges" => 'charges#create', as: :charges
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
     root 'page#public'
   end
   root 'authentications#new', as: :not_signed_in
+  get 'sign_in' => 'authentications#new', as: :new_session
 
   get '/private' => 'page#private', as: :private
 

@@ -16,7 +16,7 @@
 
   <nav>
   <% if user_signed_in? %>
-    Hi
+    Hi <%= current_user.id %> =  
     <%= current_user.first_name %>
     <%= image_tag current_user.photo_url %>
 
