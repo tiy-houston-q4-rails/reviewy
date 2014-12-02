@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'users/new', as: :sign_up
   post "users" => 'users#create', as: :users
 
+  get 'users/auth/:provider/callback' => 'authentications#create'
+  delete "/sign_out" => 'authentications#destroy', as: :destroy_user_session
   devise_for :users
   root 'page#public'
 

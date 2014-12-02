@@ -16,15 +16,20 @@
 
   <nav>
   <% if user_signed_in? %>
-    Hi <%= current_user.email %>
+    Hi
+    <%= current_user.first_name %>
+    <%= image_tag current_user.photo_url %>
+
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to "Sign Up", sign_up_path %>
+    <%= link_to "Sign in With Facebook", user_omniauth_authorize_path(provider: :facebook) %>
   <% end %>
   <%= link_to "Home", root_path %>
   <%= link_to "Private Stuff Here", private_path %>
   <%= link_to "Movie Reviews", :reviews_search %>
   <%= link_to "Taco Finder", :tacos_search %>
+
 
   <%= form_tag tacos_results_path, method: :post, id: "hangry" do %>
   <%= hidden_field_tag :longitude, "", placeholder: "longitude", id: "longitude" %>
