@@ -1,5 +1,7 @@
 class AuthenticationsController < ApplicationController
 
+  skip_before_filter :authenticate_user!
+
   def create
 
     oauth = env["omniauth.auth"]

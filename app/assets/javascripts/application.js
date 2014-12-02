@@ -17,6 +17,7 @@
 $(window).ready(function() {
 
   $("#hangry").hide();
+  $("#loader").hide();
 
   navigator.geolocation.getCurrentPosition(
     function (position) {
@@ -32,6 +33,13 @@ $(window).ready(function() {
       alert("No!" + error);
     }
   );
+
+  $("#facebook-login").on("click", function(event){
+
+    $loader = $("#loader")
+    $(event.target).replaceWith($loader);
+    $loader.show();
+  })
 
 
 });

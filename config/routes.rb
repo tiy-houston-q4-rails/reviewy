@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   get 'users/auth/:provider/callback' => 'authentications#create'
   delete "/sign_out" => 'authentications#destroy', as: :destroy_user_session
   devise_for :users
-  root 'page#public'
+
+  authenticated do
+    root 'page#public'
+  end
+  root 'authentications#new', as: :not_signed_in
 
   get '/private' => 'page#private', as: :private
 
