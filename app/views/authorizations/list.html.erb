@@ -8,6 +8,8 @@
       Connected
     <% else %>
       Not Connected
+      <%= link_to "Connect GitHub", user_omniauth_authorize_path(provider: :github) %>
+
     <% end %>
     </li>
     <li>
